@@ -3,7 +3,7 @@
   "description": "Programmatic window resizing for GNOME Shell",
   "uuid": "window-resizer@pkosel.github.com",
   "shell-version": [
-    "44"
+    "44.1"
   ],
   "settings-schema": "org.gnome.shell.extensions.window-resizer"
 }
