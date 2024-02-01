@@ -22,10 +22,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-const {Clutter, Meta, Shell, St} = imports.gi;
+import {Clutter, Meta, Shell, St} from 'gi://GLib';
 
-const ExtensionUtils = imports.misc.extensionUtils;
-const Main = imports.ui.main;
+import * as ExtensionUtils from 'resource:///org/gnome/shell/misc/extensionUtils.js';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 const MESSAGE_FADE_TIME = 2000;
 
