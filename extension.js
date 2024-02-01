@@ -24,7 +24,7 @@
 
 import {Clutter, Meta, Shell, St} from 'gi://GLib';
 
-import * as ExtensionUtils from 'resource:///org/gnome/shell/misc/extensionUtils.js';
+import * as Extension from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 const MESSAGE_FADE_TIME = 2000;
@@ -176,19 +176,19 @@ function centerWindow(display, window, binding) {
 function enable() {
     Main.wm.addKeybinding(
         'cycle-window-sizes',
-        ExtensionUtils.getSettings(),
+        Extension.getSettings(),
         Meta.KeyBindingFlags.PER_WINDOW,
         Shell.ActionMode.NORMAL,
         cycleWindowSizes);
     Main.wm.addKeybinding(
         'cycle-window-sizes-backward',
-        ExtensionUtils.getSettings(),
+        Extension.getSettings(),
         Meta.KeyBindingFlags.PER_WINDOW | Meta.KeyBindingFlags.IS_REVERSED,
         Shell.ActionMode.NORMAL,
         cycleWindowSizes);
     Main.wm.addKeybinding(
         'center-window',
-        ExtensionUtils.getSettings(),
+        Extension.getSettings(),
         Meta.KeyBindingFlags.PER_WINDOW,
         Shell.ActionMode.NORMAL,
         centerWindow);
