@@ -161,13 +161,13 @@ export default class ScreenshotWindowSizerExtension extends Extension {
 
     enable() {
         Main.wm.addKeybinding(
-            'cycle-screenshot-sizes',
+            'cycle-window-sizes',
             this.getSettings(),
             Meta.KeyBindingFlags.PER_WINDOW,
             Shell.ActionMode.NORMAL,
             this._cycleScreenshotSizes.bind(this));
         Main.wm.addKeybinding(
-            'cycle-screenshot-sizes-backward',
+            'cycle-window-sizes-backward',
             this.getSettings(),
             Meta.KeyBindingFlags.PER_WINDOW | Meta.KeyBindingFlags.IS_REVERSED,
             Shell.ActionMode.NORMAL,
