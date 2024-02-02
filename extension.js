@@ -33,7 +33,7 @@ export default class ScreenshotWindowSizerExtension extends Extension {
 
     _flashMessage(message) {
         if (!this._text) {
-            this._text = new St.Label({style_class: 'screenshot-sizer-message'});
+            this._text = new St.Label({style_class: 'window-resizer-message'});
             Main.uiGroup.add_child(this._text);
         }
 
