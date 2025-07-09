@@ -181,8 +181,8 @@ export default class ScreenshotWindowSizerExtension extends Extension {
     }
 
     disable() {
-        Main.wm.removeKeybinding('cycle-screenshot-sizes');
-        Main.wm.removeKeybinding('cycle-screenshot-sizes-backward');
+        Main.wm.removeKeybinding('cycle-window-sizes');
+        Main.wm.removeKeybinding('cycle-window-sizes-backward');
         Main.wm.removeKeybinding('center-window');
     }
 }
