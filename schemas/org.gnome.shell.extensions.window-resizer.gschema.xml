@@ -3,15 +3,15 @@
   <schema id="org.gnome.shell.extensions.window-resizer"
           path="/org/gnome/shell/extensions/window-resizer/">
     <key type="as" name="cycle-window-sizes">
-      <default><![CDATA[['<Alt><Control>s']]]></default>
+      <default><![CDATA[['<Super><Control>bracketright']]]></default>
       <summary>Cycle Window Sizes</summary>
     </key>
     <key type="as" name="cycle-window-sizes-backward">
-      <default><![CDATA[['<Shift><Alt><Control>s']]]></default>
+      <default><![CDATA[['<Super><Control>bracketleft']]]></default>
       <summary>Cycle Window Sizes Backward</summary>
     </key>
     <key type="as" name="center-window">
-      <default><![CDATA[['<Control><Super>T']]]></default>
+      <default><![CDATA[['<Super><Control>c']]]></default>
       <summary>Center Window</summary>
     </key>
   </schema>

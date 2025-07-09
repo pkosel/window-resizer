@@ -103,9 +103,9 @@ export default class ScreenshotWindowSizerExtension extends Extension {
         let newX = outerRect.x;
         let newY = outerRect.y;
         if (newX + newWidth > workArea.x + workArea.width)
-            newX = Math.max(workArea.x + workArea.width - newWidth);
+            newX = Math.max(workArea.x, workArea.x + workArea.width - newWidth);
         if (newY + newHeight > workArea.y + workArea.height)
-            newY = Math.max(workArea.y + workArea.height - newHeight);
+            newY = Math.max(workArea.y, workArea.y + workArea.height - newHeight);
 
         const id = window.connect('size-changed', () => {
             window.disconnect(id);
