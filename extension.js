@@ -63,9 +63,10 @@ export default class ScreenshotWindowSizerExtension extends Extension {
     /**
      * @param {Meta.Display} display - the display
      * @param {Meta.Window=} window - for per-window bindings, the window
+     * @param {Clutter.Event} event - the triggering event
      * @param {Meta.KeyBinding} binding - the key binding
      */
-    _cycleScreenshotSizes(display, window, binding) {
+    _cycleWindowSizes(display, window, event, binding) {
         const backwards = binding.is_reversed();
 
         // Unmaximize first
@@ -137,9 +138,10 @@ export default class ScreenshotWindowSizerExtension extends Extension {
     /**
      * @param {Meta.Display} display - the display
      * @param {Meta.Window=} window - for per-window bindings, the window
+     * @param {Clutter.Event} event - the triggering event
      * @param {Meta.KeyBinding} binding - the key binding
      */
-    _centerWindow(display, window, binding) {
+    _centerWindow(display, window, event, binding) {
         // Unmaximize first
         if (window.get_maximized() !== 0)
             window.unmaximize(Meta.MaximizeFlags.BOTH);
@@ -147,8 +149,8 @@ export default class ScreenshotWindowSizerExtension extends Extension {
         let workArea = window.get_work_area_current_monitor();
         let outerRect = window.get_frame_rect();
 
-        let newX = (workArea.width - outerRect.width) / 2;
-        let newY = (workArea.height - outerRect.height) / 2;
+        let newX = workArea.x + (workArea.width - outerRect.width) / 2;
+        let newY = workArea.y + (workArea.height - outerRect.height) / 2;
 
         const id = window.connect('size-changed', () => {
             window.disconnect(id);
@@ -165,13 +167,13 @@ export default class ScreenshotWindowSizerExtension extends Extension {
             this.getSettings(),
             Meta.KeyBindingFlags.PER_WINDOW,
             Shell.ActionMode.NORMAL,
-            this._cycleScreenshotSizes.bind(this));
+            this._cycleWindowSizes.bind(this));
         Main.wm.addKeybinding(
             'cycle-window-sizes-backward',
             this.getSettings(),
             Meta.KeyBindingFlags.PER_WINDOW | Meta.KeyBindingFlags.IS_REVERSED,
             Shell.ActionMode.NORMAL,
-            this._cycleScreenshotSizes.bind(this));
+            this._cycleWindowSizes.bind(this));
         Main.wm.addKeybinding(
             'center-window',
             this.getSettings(),
